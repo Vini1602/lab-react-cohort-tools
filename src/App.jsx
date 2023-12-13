@@ -1,26 +1,21 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import StudentDetailsPage from "./pages/StudentDetailsPage";
-import UserProfilePage from "./pages/UserProfilePage";
+// App.jsx
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../pages/HomePage';
+import StudentDetailsPage from './StudentDetailsPage';
+import UserProfilePage from './UserProfilePage';
 
-
-function App() {
-
+const App = () => {
   return (
-    <div className="App relative z-20 pt-20">
-      <Navbar />
-
-      <div className="pages">
-        <HomePage />
-
-        <StudentDetailsPage />
-
-        <UserProfilePage />
-      </div>
-
+    <div>
+      
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/students/:studentId" component={StudentDetailsPage} />
+        <Route path="/profile" component={UserProfilePage} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
